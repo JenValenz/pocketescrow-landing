@@ -1,0 +1,17 @@
+# Pocket Escrow App — www.pocketescrow.org
+# Marketing site for the Pocket Escrow App education platform.
+# Published by JLNV Consulting, LLC.
+
+User-agent: *
+Allow: /
+
+# The /tutorials/ pages are in-app help documentation, linked from the
+# Tutorials tab inside the app. Crawling is intentionally left ALLOWED so
+# crawlers can read the per-page "noindex" robots meta tag on the six
+# product-walkthrough pages. Do not add a Disallow rule here — that would
+# hide those noindex tags and could leave the URLs indexed without content.
+#
+# /tutorials/wire-fraud-checklist/ is intentionally indexable: it covers a
+# standalone topic with real search demand rather than app mechanics.
+
+Sitemap: https://www.pocketescrow.org/sitemap.xml

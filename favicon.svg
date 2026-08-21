@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Pocket Escrow App">
+  <rect width="48" height="48" rx="10" fill="#fdfaf5"/>
+  <g transform="translate(2 0)">
+    <path d="M14 30 L14 38 Q14 44 22 44 Q30 44 30 38 L30 14 Q30 6 22 6 Q14 6 14 14 L14 32" stroke="#1a2e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M18 32 L18 14 Q18 12 22 12 Q26 12 26 14 L26 38 Q26 40 22 40 Q18 40 18 38 L18 34" stroke="#4db8b8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

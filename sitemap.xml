@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pocket Escrow App sitemap.
+
+  Only indexable pages belong here. The six /tutorials/ product-walkthrough
+  pages carry a "noindex" robots meta tag and are deliberately excluded —
+  listing a noindexed URL in a sitemap sends Google contradictory signals
+  and shows up as an error in Search Console.
+
+  changefreq and priority are omitted on purpose: Google ignores both.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.pocketescrow.org/</loc>
+    <lastmod>2026-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pocketescrow.org/tutorials/wire-fraud-checklist/</loc>
+    <lastmod>2026-08-20</lastmod>
+  </url>
+</urlset>

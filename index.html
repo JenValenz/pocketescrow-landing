@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pocket Escrow — California Escrow Education, In Your Pocket</title>
-  <meta name="description" content="Pocket Escrow is a California real estate escrow education platform built by a 30-year California escrow professional. Glossary, interactive timelines, fillable forms, closing cost calculators, and an AI escrow assistant." />
+
+  <title>Pocket Escrow App — California Escrow Education, In Your Pocket</title>
+  <meta name="description" content="California escrow education from a 30-year escrow professional. Glossary, timelines, fillable forms, closing cost calculators, and an AI assistant." />
+  <link rel="canonical" href="https://www.pocketescrow.org/" />
   <meta name="theme-color" content="#4db8b8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pocket Escrow App" />
+  <meta property="og:title" content="Pocket Escrow App — California Escrow Education, In Your Pocket" />
+  <meta property="og:description" content="California escrow education from a 30-year escrow professional. Glossary, timelines, fillable forms, closing cost calculators, and an AI assistant." />
+  <meta property="og:url" content="https://www.pocketescrow.org/" />
+  <meta property="og:image" content="https://www.pocketescrow.org/og-image.png" />
+  <meta property="og:image:width" content="1640" />
+  <meta property="og:image:height" content="859" />
+  <meta property="og:image:alt" content="Pocket Escrow App — illustrated California neighborhood with the paperclip mascot" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pocket Escrow App — California Escrow Education, In Your Pocket" />
+  <meta name="twitter:description" content="California escrow education from a 30-year escrow professional. Glossary, timelines, fillable forms, closing cost calculators, and an AI assistant." />
+  <meta name="twitter:image" content="https://www.pocketescrow.org/og-image.png" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VST5ZX252M"></script>
   <script>
@@ -19,17 +38,115 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.pocketescrow.org/#organization",
+        "name": "Pocket Escrow App",
+        "legalName": "JLNV Consulting, LLC",
+        "url": "https://www.pocketescrow.org/",
+        "logo": "https://www.pocketescrow.org/favicon.svg",
+        "image": "https://www.pocketescrow.org/og-image.png",
+        "email": "help@pocketescrow.org",
+        "description": "Pocket Escrow App is a California real estate escrow education platform.",
+        "disambiguatingDescription": "Pocket Escrow App is an educational software platform published by JLNV Consulting, LLC. It is a standalone reference and training tool. It is not an escrow company, does not hold or disburse funds, and is not affiliated with any escrow, title, or settlement services provider.",
+        "areaServed": {
+          "@type": "State",
+          "name": "California"
+        },
+        "knowsAbout": [
+          "California real estate escrow",
+          "Escrow closing costs",
+          "Seller net proceeds",
+          "Title insurance",
+          "Wire fraud prevention"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.pocketescrow.org/#website",
+        "url": "https://www.pocketescrow.org/",
+        "name": "Pocket Escrow App",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://www.pocketescrow.org/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.pocketescrow.org/#app",
+        "name": "Pocket Escrow App",
+        "url": "https://app.pocketescrow.org/",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Real estate escrow education",
+        "operatingSystem": "Web browser, iOS, Android",
+        "browserRequirements": "Requires JavaScript.",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://www.pocketescrow.org/#organization" },
+        "featureList": [
+          "177-term escrow glossary with role-based filtering",
+          "Interactive purchase and refinance timelines",
+          "Life of an Escrow infographic",
+          "19 fillable escrow forms with PDF download",
+          "Seller Net Sheet calculator",
+          "Buyer Closing Costs calculator",
+          "The Escrow Desk AI assistant",
+          "Property Profile lookup"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Guest",
+            "description": "Glossary, timelines, and the Life of an Escrow infographic. No account required.",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Essential (monthly)",
+            "description": "Adds all 19 fillable forms, both cost calculators, and The Escrow Desk AI assistant.",
+            "price": "9.99",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Essential (annual)",
+            "description": "Essential billed yearly.",
+            "price": "79.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro (monthly)",
+            "description": "Adds Property Profile lookups and priority support.",
+            "price": "29.99",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro (annual)",
+            "description": "Pro billed yearly.",
+            "price": "249.00",
+            "priceCurrency": "USD"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="logo" aria-label="Pocket Escrow home">
+      <a href="#top" class="logo" aria-label="Pocket Escrow App home">
         <svg width="32" height="32" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <path d="M14 30 L14 38 Q14 44 22 44 Q30 44 30 38 L30 14 Q30 6 22 6 Q14 6 14 14 L14 32" stroke="#1a2e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <path d="M18 32 L18 14 Q18 12 22 12 Q26 12 26 14 L26 38 Q26 40 22 40 Q18 40 18 38 L18 34" stroke="#4db8b8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         </svg>
-        <span>Pocket Escrow</span>
+        <span>Pocket Escrow App</span>
       </a>
       <nav class="nav-links">
         <a href="#features">Features</a>
@@ -56,7 +173,7 @@
         </ul>
       </div>
       <div class="hero-visual">
-        <svg width="100%" viewBox="0 0 680 420" role="img" aria-label="Illustrated neighborhood scene with houses, trees, people, a dog, and the Pocket Escrow paperclip mascot">
+        <svg width="100%" viewBox="0 0 680 420" role="img" aria-label="Illustrated neighborhood scene with houses, trees, people, a dog, and the Pocket Escrow App paperclip mascot">
           <rect x="0" y="0" width="680" height="420" fill="none"/>
           <circle cx="580" cy="70" r="44" fill="#f4a261" opacity="0.9"/>
           <circle cx="580" cy="70" r="34" fill="#f9c784" opacity="0.7"/>
@@ -325,7 +442,7 @@
             <path d="M14 30 L14 38 Q14 44 22 44 Q30 44 30 38 L30 14 Q30 6 22 6 Q14 6 14 14 L14 32" stroke="#fdfaf5" stroke-width="3.5" fill="none" stroke-linecap="round"/>
             <path d="M18 32 L18 14 Q18 12 22 12 Q26 12 26 14 L26 38 Q26 40 22 40 Q18 40 18 38 L18 34" stroke="#4db8b8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           </svg>
-          <span>Pocket Escrow</span>
+          <span>Pocket Escrow App</span>
         </a>
         <p class="footer-tagline">California escrow education, in your pocket.</p>
       </div>
@@ -347,7 +464,7 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2026 JLNV Consulting, LLC. Pocket Escrow is an education platform — not legal, financial, or tax advice.</p>
+        <p>© 2026 JLNV Consulting, LLC. Pocket Escrow App is an education platform — not legal, financial, or tax advice.</p>
       </div>
     </div>
   </footer>
