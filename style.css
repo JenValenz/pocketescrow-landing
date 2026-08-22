@@ -541,6 +541,104 @@ section h2 {
   text-decoration: underline;
 }
 
+.article-hero {
+  padding: 56px 0 32px;
+}
+
+.article-hero-inner {
+  max-width: 780px;
+}
+
+.article-byline {
+  margin-top: 16px;
+  font-size: 0.92rem;
+  color: var(--text-light);
+}
+
+.article-byline a { color: var(--teal-dark); font-weight: 600; }
+
+.article-content {
+  padding: 0 0 88px;
+}
+
+.article-prose {
+  max-width: 780px;
+}
+
+.article-prose h2 {
+  margin-top: 44px;
+  font-size: 1.5rem;
+}
+
+.article-prose h3 {
+  margin-top: 28px;
+  font-size: 1.15rem;
+}
+
+.article-prose p,
+.article-prose li {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0 8px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.stat-source {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0 0 8px;
+}
+
+.stat-source a { color: var(--text-light); }
+
+.numbered-steps,
+.flag-list {
+  padding-left: 22px;
+}
+
+.numbered-steps li,
+.flag-list li {
+  margin-bottom: 10px;
+}
+
+.warning-callout {
+  margin: 32px 0;
+  padding: 20px 24px;
+  background: #fff4e8;
+  border-left: 4px solid var(--orange);
+  border-radius: var(--radius-sm);
+}
+
+.warning-callout h3 { margin-top: 0; }
+.warning-callout p { margin-bottom: 0; }
+.warning-callout a { color: var(--orange-dark); }
+
 .glossary-content {
   padding: 0 0 88px;
 }
@@ -751,6 +849,7 @@ section h2 {
   .author-hero-grid { flex-direction: column; text-align: center; }
   .author-cta { flex-direction: column; }
   .glossary-categories { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr; }
   .az-jump { top: 60px; }
   .nav { height: 60px; }
   .nav-links { gap: 14px; }
