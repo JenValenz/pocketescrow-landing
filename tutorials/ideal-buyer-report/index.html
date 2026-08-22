@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pocket Escrow App &mdash; Ideal Buyer Report</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="How to use the Ideal Buyer Report in the Pocket Escrow App to generate an AI buyer persona for a California listing.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #4db8b8;
+  --navy: #1a2e4a;
+  --navy-deep: #0f1d33;
+  --orange: #f4a261;
+  --cream: #fdfaf5;
+  --soft: #ecf3f3;
+  --muted: rgba(26,46,74,0.65);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  padding: 28px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(26,46,74,0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brand mark top-left */
+.brand-mark {
+  position: absolute;
+  top: 24px; left: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+.mark-circle {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.mark-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mark-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+/* Stage holds the video + the play overlay */
+.stage {
+  width: 100%;
+  max-width: 1080px;
+  margin-top: 56px;
+  position: relative;
+  background: var(--cream);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(26,46,74,0.22);
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+}
+.player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--navy-deep);
+}
+
+/* Play overlay */
+.play-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  cursor: pointer;
+  transition: opacity 0.5s;
+  padding: 40px 32px;
+  text-align: center;
+}
+.play-overlay.hide { opacity: 0; pointer-events: none; }
+.play-overlay .mascot-circle {
+  width: clamp(78px, 9vw, 108px);
+  height: clamp(78px, 9vw, 108px);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(77, 184, 184, 0.35);
+  margin-bottom: 4px;
+}
+.play-overlay .mascot-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.play-overlay .eyebrow {
+  color: var(--teal);
+  font-size: clamp(11px, 1.3vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.play-overlay h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4.6vw, 52px);
+  color: var(--cream);
+  max-width: 86%;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+.play-overlay .subtitle {
+  color: rgba(253, 250, 245, 0.7);
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 500;
+  max-width: 80%;
+  line-height: 1.45;
+}
+.play-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--orange);
+  border: none;
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 18px);
+  letter-spacing: 0.04em;
+  padding: 12px 26px 12px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 12px 30px rgba(244, 162, 97, 0.45);
+  margin-top: 6px;
+}
+.play-button:hover { transform: scale(1.05); }
+.play-button .icon {
+  width: 30px; height: 30px;
+  background: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-button .icon svg { width: 12px; height: 12px; margin-left: 2px; }
+
+/* Replay */
+.replay {
+  display: none;
+  margin-top: -6px;
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.replay.show { display: inline-flex; align-items: center; gap: 6px; }
+.replay:hover { background: var(--orange); }
+
+/* CTA */
+.cta-wrap {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 8px 16px 0;
+}
+.cta-prompt {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 30px);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 17px);
+  padding: 14px 28px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 10px 28px rgba(77, 184, 184, 0.35);
+}
+.cta-link:hover { background: var(--navy); transform: translateY(-2px); }
+.cta-link .arrow { transition: transform 0.2s; }
+.cta-link:hover .arrow { transform: translateX(4px); }
+
+@media (max-width: 720px) {
+  body { padding: 18px 12px 28px; gap: 22px; }
+  .brand-mark { top: 14px; left: 16px; gap: 8px; }
+  .mark-circle { width: 26px; height: 26px; }
+  .mark-text { font-size: 13px; }
+  .stage { margin-top: 44px; border-radius: 14px; }
+}
+
+/* Transcript / chapter list below the player */
+.transcript {
+  width: 100%;
+  max-width: 1080px;
+  z-index: 1;
+  margin-top: 4px;
+}
+.transcript h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.transcript .lede {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.chapter {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(26,46,74,0.10);
+}
+.chapter-time {
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  flex: 0 0 44px;
+  padding-top: 2px;
+}
+.chapter h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.chapter p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+@media (max-width: 560px) {
+  .chapter { gap: 12px; }
+  .chapter-time { flex-basis: 38px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-mark">
+  <div class="mark-circle"><img src="../mascot.jpg" alt=""></div>
+  <span class="mark-text">Pocket Escrow App</span>
+</div>
+
+<div class="stage">
+  <video id="player" class="player" src="./ideal-buyer-report.mp4" playsinline controls preload="metadata"></video>
+
+  <div class="play-overlay" id="playOverlay">
+    <div class="mascot-circle"><img src="../mascot.jpg" alt=""></div>
+    <p class="eyebrow">Ideal Buyer</p>
+    <h1>Ideal Buyer Report</h1>
+    <p class="subtitle">Who is most likely to buy your listing &mdash; and how to talk to them</p>
+    <button class="play-button" id="playButton" aria-label="Watch Now">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="#f4a261"><polygon points="6,4 22,12 6,20"/></svg>
+      </span>
+      Watch Now
+    </button>
+  </div>
+</div>
+
+<button class="replay" id="replayButton" aria-label="Replay">&#8635; Replay</button>
+
+<div class="transcript">
+  <h2>What's in this tutorial</h2>
+  <p class="lede">1 minutes 42 seconds &middot; 11 sections</p>
+      <div class="chapter">
+        <p class="chapter-time">0:00</p>
+        <div>
+          <h3>Ideal Buyer Report</h3>
+          <p>The Ideal Buyer Report tells you who is most likely to buy a listing, and how to talk to them. Here is how it works. Open the Buyer tab in Pocket Es-Crow App.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:10</p>
+        <div>
+          <h3>Your Company Profile</h3>
+          <p>Step one is your company profile. Enter your company name, phone number, escrow officer, license, and address. Save it once, and every report you generate comes back branded with your details.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:23</p>
+        <div>
+          <h3>Property Details</h3>
+          <p>Step two is the property. Enter the address and the list price. Those two fields are all that is required.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:30</p>
+        <div>
+          <h3>School District + HOA</h3>
+          <p>From there, the report fills in the rest. It looks up the school district that serves the property, and whether there is a homeowners association, so you do not have to.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:40</p>
+        <div>
+          <h3>Key Features</h3>
+          <p>Add key features if you want a sharper result. A pool, a remodeled kitchen, a corner lot.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:47</p>
+        <div>
+          <h3>Buyer Snapshot</h3>
+          <p>Then generate the report. You get a buyer snapshot first: age range, income range, household, and current situation.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">0:56</p>
+        <div>
+          <h3>Value, Motivation, Worries</h3>
+          <p>After that, What They Value. Why They Buy. What Worries Them, with every worry paired to a way you can answer it. Then Talking Points, and Content Ideas you can drop straight into a listing description or a social post.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">1:12</p>
+        <div>
+          <h3>Fair Housing Built In</h3>
+          <p>Every report is written to stay inside fair housing rules. No race, no religion, no national origin, ever. Only income, household, motivation, and practical concerns.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">1:26</p>
+        <div>
+          <h3>PDF, Email, or In-App</h3>
+          <p>When it is ready, download it as a PDF, email it to your client, or share it inside the app.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">1:33</p>
+        <div>
+          <h3>Included on Pro</h3>
+          <p>The Ideal Buyer Report is included on Pro. On any other plan, it is five dollars per report.</p>
+        </div>
+      </div>
+      <div class="chapter">
+        <p class="chapter-time">1:39</p>
+        <div>
+          <h3>Try Your Next Listing</h3>
+          <p>Open the Buyer tab and run one on your next listing.</p>
+        </div>
+      </div>
+</div>
+
+<div class="cta-wrap">
+  <p class="cta-prompt">Ready to try one?</p>
+  <a class="cta-link" href="https://app.pocketescrow.org">
+    Open the app
+    <span class="arrow">&rarr;</span>
+  </a>
+</div>
+
+<script>
+const overlay = document.getElementById('playOverlay');
+const playBtn = document.getElementById('playButton');
+const replayBtn = document.getElementById('replayButton');
+const video = document.getElementById('player');
+
+function startPlayback() {
+  overlay.classList.add('hide');
+  try { video.currentTime = 0; } catch (e) {}
+  const p = video.play();
+  if (p && typeof p.catch === 'function') p.catch(() => {});
+}
+
+playBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  startPlayback();
+});
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay || e.target.closest('.mascot-circle') || e.target.closest('h1')) {
+    startPlayback();
+  }
+});
+video.addEventListener('ended', () => {
+  replayBtn.classList.add('show');
+});
+replayBtn.addEventListener('click', () => {
+  replayBtn.classList.remove('show');
+  video.currentTime = 0;
+  video.play();
+});
+</script>
+
+</body>
+</html>
