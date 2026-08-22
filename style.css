@@ -532,8 +532,206 @@ section h2 {
   margin-top: 40px;
 }
 
+.glossary-hero {
+  padding: 56px 0 24px;
+}
+
+.glossary-hero .eyebrow a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.glossary-content {
+  padding: 0 0 88px;
+}
+
+.category-intro {
+  max-width: 780px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.glossary-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.glossary-category-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.glossary-category-link:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-sm);
+}
+
+.glossary-category-link .term-count {
+  margin-left: auto;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.role-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.role-filter-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-right: 4px;
+}
+
+.role-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.role-chip.is-active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.az-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 0;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 73px;
+  background: rgba(253, 250, 245, 0.95);
+  z-index: 10;
+}
+
+.az-jump a {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--navy);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.az-jump a:hover { background: var(--cream-dark); }
+
+.glossary-list {
+  margin: 0;
+}
+
+.glossary-letter {
+  font-size: 1.3rem;
+  color: var(--teal-dark);
+  border-bottom: 2px solid var(--cream-dark);
+  padding-bottom: 6px;
+  margin: 32px 0 12px;
+  scroll-margin-top: 90px;
+}
+
+.term-entry {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 90px;
+}
+
+.term-entry dt {
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+}
+
+.term-category {
+  margin-left: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  background: var(--cream-dark);
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.term-entry dd {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.term-warning {
+  margin: 8px 0 0;
+  padding: 10px 14px;
+  background: #fff4e8;
+  border-left: 3px solid var(--orange);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.term-warning a { color: var(--orange-dark); }
+
+.glossary-sibling-nav {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.glossary-sibling-nav h3 {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.glossary-sibling-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.glossary-sibling-links a {
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.glossary-sibling-links a:hover { border-color: var(--teal); }
+
 @media (max-width: 960px) {
   .hero { padding: 56px 0 40px; }
+  .glossary-categories { grid-template-columns: repeat(2, 1fr); }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -552,6 +750,8 @@ section h2 {
   .container { padding: 0 18px; }
   .author-hero-grid { flex-direction: column; text-align: center; }
   .author-cta { flex-direction: column; }
+  .glossary-categories { grid-template-columns: 1fr; }
+  .az-jump { top: 60px; }
   .nav { height: 60px; }
   .nav-links { gap: 14px; }
   .nav-links a:not(.btn) { display: none; }
