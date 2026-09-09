@@ -427,6 +427,18 @@
     </div>
   </section>
 
+  <section class="email-capture">
+    <div class="container email-capture-inner">
+      <h2>Escrow tips, straight from 30 years in the business.</h2>
+      <p>One short email now and then. No spam, unsubscribe anytime.</p>
+      <form id="email-capture-form" class="email-capture-form">
+        <input type="email" id="email-capture-input" class="email-capture-input" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Send me tips</button>
+      </form>
+      <p id="email-capture-message" class="email-capture-message" hidden></p>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="container cta-inner">
       <h2>Ready to decode your escrow?</h2>
@@ -476,6 +488,45 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('email-capture-form');
+      var input = document.getElementById('email-capture-input');
+      var message = document.getElementById('email-capture-message');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        fetch('https://linuomhsmsivavjnjtrs.supabase.co/rest/v1/email_leads', {
+          method: 'POST',
+          headers: {
+            apikey: 'sb_publishable_Zyjg10qyl1bcpUuJNdzUug_0EgCoZC4',
+            Authorization: 'Bearer sb_publishable_Zyjg10qyl1bcpUuJNdzUug_0EgCoZC4',
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal'
+          },
+          body: JSON.stringify({ email: input.value, source: 'landing-hero' })
+        })
+          .then(function (res) {
+            if (res.ok || res.status === 409) {
+              form.replaceWith(Object.assign(document.createElement('p'), {
+                className: 'email-capture-message',
+                textContent: "You're on the list."
+              }));
+            } else {
+              throw new Error('Request failed');
+            }
+          })
+          .catch(function () {
+            message.textContent = 'Something went wrong — try again.';
+            message.hidden = false;
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>

@@ -399,6 +399,55 @@ section h2 {
   box-shadow: var(--shadow-md);
 }
 
+.email-capture {
+  padding: 72px 0;
+  background: var(--cream);
+}
+
+.email-capture-inner {
+  text-align: center;
+  max-width: 560px;
+}
+
+.email-capture-inner h2 { margin-bottom: 12px; }
+
+.email-capture-inner > p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 0 0 32px;
+}
+
+.email-capture-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.email-capture-input {
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 13px 18px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--navy);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.email-capture-input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.email-capture-message {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
 .cta {
   padding: 88px 0;
   background: linear-gradient(180deg, #f0f9f7 0%, var(--cream) 100%);
