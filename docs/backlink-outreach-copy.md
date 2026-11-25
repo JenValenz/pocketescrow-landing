@@ -22,7 +22,7 @@ association outreach. See the prioritized target list in the SEO plan
 >
 > Founded by Jennifer Valenzuela, a 30-year California escrow professional, DFPI-Qualified Escrow Manager, and founder of three licensed California escrow companies, Pocket Escrow App gives buyers, sellers, and borrowers a plain-English reference for every step of their transaction — and gives realtors, loan officers, escrow officers, and title agents a practical daily toolkit.
 >
-> Free (Guest tier) access includes a 177-term glossary and interactive timelines. Paid tiers add 19 fillable escrow forms, a Seller Net Sheet and Buyer Closing Costs calculator, an AI chat assistant trained on California escrow, and Property Profile lookups.
+> Free accounts include a 177-term glossary and interactive timelines. Paid tiers add 19 fillable escrow forms, a Seller Net Sheet and Buyer Closing Costs calculator, an AI chat assistant trained on California escrow, and Property Profile lookups.
 >
 > Built for California. Education, not legal advice.
 
