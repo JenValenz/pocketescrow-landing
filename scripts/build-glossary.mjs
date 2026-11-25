@@ -308,6 +308,7 @@ function page({ title, description, canonical, ogImage, bodyHtml, schemaObjects,
 ${siteHeader()}
 ${bodyHtml}
 ${siteFooter()}
+<script src="/visit.js" defer></script>
 </body>
 </html>
 `
